@@ -56,8 +56,11 @@ function checkwin(){
 function restartGame(){
     current="X"
     options=["","","","","","","","",""]
-    cells.forEach(cell => cell.textContent="")
-    initializeGame()
+    cells.forEach(cell => {
+        cell.textContent = "";
+        cell.addEventListener('click', updateCell); // Reattach the event listener
+    });
+    statusText.textContent = `${current}'s turn:`;
 
 
 }
